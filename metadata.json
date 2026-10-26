@@ -1,0 +1,6 @@
+{
+  "name": "NEXORA — Multiplayer Party Showdown",
+  "description": "NEXORA: The Chaos Club — Make Friends. Break Rules. Cause Chaos. An extraordinarily fun, cartoon multiplayer party game featuring rapid puzzles, secret sabotage, and wild deduction for 2-8 players.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

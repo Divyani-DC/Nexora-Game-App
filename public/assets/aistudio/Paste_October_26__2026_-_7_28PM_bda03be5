@@ -1,0 +1,962 @@
+# NEXORA: THE CHAOS CLUB
+## Complete Multiplayer Game, Authentication, Animated World, and Music Experience
+
+Act as a senior full-stack game developer, creative director, multiplayer systems architect, authentication engineer, animation specialist, and professional UI/UX designer.
+
+Transform my existing NEXORA project into a complete, playable, cartoon-inspired multiplayer party game.
+
+Use the attached reference image as the primary visual design reference. Reproduce its overall composition, playful character style, vibrant colors, rounded cards, expressive mascots, animated atmosphere, and polished gaming experience as closely as practical.
+
+Do not merely create a static mockup or screenshot. Build the actual working application.
+
+The final result should feel like an interactive cartoon arcade where friends can create accounts, join rooms, compete in challenges, listen to game music, discover animated characters, and play together from separate devices.
+
+## CRITICAL INSTRUCTIONS
+
+1. Inspect my existing project before making changes.
+2. Preserve existing working code, game rules, backend connections, and features.
+3. Do not replace functional multiplayer logic with simulated interactions.
+4. Implement real authentication and secure user sessions.
+5. Implement real multiplayer room management and synchronized gameplay.
+6. Add original, suitable background music and functional music controls.
+7. Create animated backgrounds and original cartoon-inspired mascot illustrations.
+8. Make every screen responsive and usable on desktop, tablet, and mobile.
+9. Test the actual game flow and resolve errors.
+10. Do not claim a feature works until it has been implemented and tested.
+
+If a backend service requires configuration, explain exactly what is missing rather than pretending that authentication or multiplayer is operational.
+
+---
+
+# 1. GAME IDENTITY
+
+Game name: NEXORA
+
+Brand identity: THE CHAOS CLUB
+
+Main tagline:
+"MAKE FRIENDS. BREAK RULES. CAUSE CHAOS."
+
+Supporting tagline:
+"One room. Eight players. Absolutely unhinged energy."
+
+Design direction:
+- Colorful cartoon arcade.
+- Playful, childish, attractive, and expressive.
+- Original characters and animated environments.
+- Bright candy colors combined with rich midnight-blue surfaces.
+- Rounded, toy-like interface components.
+- Smooth motion and rewarding interactions.
+- Premium-quality implementation rather than a generic template.
+
+Target audience:
+Teenagers, college students, friends, and casual multiplayer game enthusiasts.
+
+Support 2–8 players per room.
+
+---
+
+# 2. VISUAL DESIGN — FOLLOW THE REFERENCE IMAGE
+
+Recreate the visual language of the provided reference image.
+
+The reference combines:
+- A colorful illustrated home screen.
+- Pink, blue, purple, green, and orange mascot characters.
+- Midnight-blue gaming panels.
+- Pink gradient action buttons.
+- Rounded login and registration panels.
+- Animated game environments.
+- Player lobby cards.
+- Challenge screens.
+- Voting and reveal screens.
+- A colorful winner celebration.
+- A dedicated music player.
+- A showcase of animated backgrounds and mascots.
+
+Maintain visual consistency throughout the application.
+
+## Color palette
+
+Use these design tokens:
+
+Bubblegum Pink: #FF5DA2
+Electric Pink: #FF39A8
+Candy Orange: #FF8A3D
+Sunshine Yellow: #FFD84D
+Jellybean Purple: #9B72FF
+Electric Blue: #53CFFF
+Mint Green: #70E6BB
+Deep Grape: #302044
+Midnight Blue: #0B102A
+Dark Panel: #151B3B
+Soft Lavender: #DCD5FF
+Cream White: #FFF8E9
+Pure White: #FFFFFF
+
+Use midnight-blue backgrounds for gaming panels, with vibrant candy-colored highlights and illustrations.
+
+Use light, colorful illustrated backgrounds for selected marketing sections and dramatic dark backgrounds for active gameplay.
+
+Do not make every screen identical. Give each stage a distinctive atmosphere while maintaining the same design language.
+
+## Typography
+
+Use:
+- Fredoka or Baloo 2 for playful headings.
+- Nunito or Inter for interface text.
+- JetBrains Mono for room codes, countdowns, and technical labels.
+
+Use oversized hero text, strong contrast, comfortable spacing, and clear button labels.
+
+## Interface styling
+
+Create:
+- Rounded cards.
+- Chunky gradient buttons.
+- Soft shadows.
+- Colorful borders.
+- Sticker-like labels.
+- Playful badges.
+- Small decorative stars.
+- Animated background shapes.
+- Expressive illustrations.
+- Smooth card transitions.
+
+Avoid generic dashboard layouts, excessive glassmorphism, tiny text, and unnecessary decoration that obstructs gameplay.
+
+---
+
+# 3. ORIGINAL MASCOT CHARACTERS
+
+Create five original mascot characters that appear throughout the application.
+
+## PIP — Pink Blob
+
+A round, adorable pink creature with large expressive eyes, tiny arms, and an enthusiastic smile.
+
+Personality: Excited and energetic.
+
+## ZAP — Blue Electric Creature
+
+A small blue lightning-inspired creature with a mischievous expression.
+
+Personality: Fast, competitive, and playful.
+
+## MOCHI — Purple Cloud Genius
+
+A soft purple cloud creature wearing oversized glasses.
+
+Personality: Intelligent, curious, and observant.
+
+## PICKLE — Green Trickster
+
+A small green bean-shaped character with a suspicious smile.
+
+Personality: Mysterious, clever, and unpredictable.
+
+## BOOM — Orange Celebration Monster
+
+A fluffy orange creature with tiny horns and an enormous smile.
+
+Personality: Loud, lovable, and always celebrating.
+
+Create original illustrations or lightweight SVG/CSS characters. Use consistent proportions, expressive faces, subtle shadows, and polished silhouettes.
+
+Do not use existing copyrighted characters or brand mascots.
+
+Each character should support multiple visual expressions:
+- Happy.
+- Excited.
+- Curious.
+- Suspicious.
+- Confused.
+- Shocked.
+- Laughing.
+- Celebrating.
+
+Use character expressions contextually throughout the game.
+
+Mascots should never obstruct buttons, important text, or gameplay controls.
+
+---
+
+# 4. COMPLETE HOME SCREEN
+
+Create an immersive cartoon arcade homepage matching the reference.
+
+## Header
+
+Include:
+- NEXORA logo.
+- Home.
+- How to Play.
+- Game Modes.
+- Music control.
+- Login or profile button.
+
+Use a clean responsive navigation bar.
+
+## Hero section
+
+Create a large, colorful, animated cartoon environment featuring:
+- A large NEXORA wordmark.
+- The CHAOS CLUB badge.
+- Floating mascot characters.
+- Colorful floating islands.
+- Soft clouds.
+- Candy-colored platforms.
+- Stars and sparkles.
+- Subtle parallax movement.
+- A prominent primary action.
+
+Main heading:
+
+"YOUR FRIENDS.
+YOUR CHAOS.
+YOUR GAME."
+
+Supporting text:
+
+"Gather your favorite troublemakers. Solve ridiculous challenges. Outsmart your friends. Try not to get exposed."
+
+Primary button:
+"GET STARTED"
+
+Secondary button:
+"JOIN THE CHAOS"
+
+Clicking GET STARTED should take unauthenticated users to registration or login.
+
+Authenticated users should be able to continue directly to the game lobby or room creation.
+
+Clicking JOIN THE CHAOS should open the functional room-joining interface.
+
+## Additional homepage sections
+
+Include:
+- Game mode cards.
+- How-to-play steps.
+- Mascot showcase.
+- Music player preview.
+- Animated environment showcase.
+- A final invitation to create a room.
+
+Only advertise game modes that are actually implemented.
+
+---
+
+# 5. REAL USER AUTHENTICATION
+
+Implement a complete, working authentication system so that different people can create their own accounts and use the game.
+
+Use Firebase Authentication if it is compatible with the current project. Reuse any existing Firebase configuration rather than creating duplicate or conflicting configurations.
+
+If Firebase has not been configured, prepare the integration and provide clear setup instructions.
+
+## Login screen
+
+Create a polished login screen matching the reference image.
+
+Heading:
+"WELCOME BACK!"
+
+Supporting text:
+"Your chaos crew missed you."
+
+Fields:
+- Email address.
+- Password.
+
+Include:
+- Show/hide password.
+- Login button.
+- Forgot password.
+- Link to registration.
+- Loading state.
+- Inline validation.
+- Authentication error messages.
+
+Optional:
+- Google sign-in, only if properly configured and tested.
+
+Do not display a Google sign-in button as operational if its provider has not been configured.
+
+## Registration screen
+
+Heading:
+"JOIN THE CHAOS CLUB!"
+
+Supporting text:
+"Create your account and get ready for chaos."
+
+Fields:
+- Display name.
+- Email address.
+- Password.
+- Confirm password.
+
+Requirements:
+- Validate email format.
+- Enforce appropriate password requirements.
+- Check that passwords match.
+- Prevent duplicate account creation.
+- Display understandable errors.
+- Prevent repeated submissions while processing.
+- Show a success state.
+- Navigate to the appropriate next screen after successful registration.
+
+Store the display name in the user's profile.
+
+Never store plain-text passwords in the database.
+
+Use Firebase Authentication or another established authentication provider for credential management.
+
+## Forgot password
+
+Implement actual password-reset functionality using the configured authentication provider.
+
+Show a confirmation message without exposing unnecessary account information.
+
+## Session persistence
+
+After login:
+- Preserve the user's authenticated session.
+- Display their real display name and profile information.
+- Allow them to create and join rooms.
+- Restore their session after a page refresh.
+- Protect authenticated-only routes where appropriate.
+
+After logout:
+- End the session correctly.
+- Clear private user state.
+- Return the user to the appropriate public screen.
+
+## Account menu
+
+For authenticated users, display:
+- Display name.
+- Avatar or mascot selection.
+- Account menu.
+- Profile settings, if implemented.
+- Logout.
+
+Use clear loading and error states while authentication is being checked.
+
+## Security requirements
+
+- Never expose private API keys or service-account credentials in frontend code.
+- Use environment variables for appropriate configuration.
+- Apply appropriate database access rules.
+- Ensure users cannot access another user's private profile data.
+- Do not trust frontend-provided identity or permissions.
+- Protect secret game information from unauthorized clients.
+
+---
+
+# 6. USER PROFILE AND AVATAR CUSTOMIZATION
+
+Create a playful profile experience.
+
+Allow users to select an available mascot avatar.
+
+Profile information may include:
+- Display name.
+- Email address.
+- Selected mascot.
+- Games played, if tracked.
+- Wins, if tracked.
+- Achievements, if implemented.
+
+Persist profile changes using the existing backend or a properly configured database.
+
+Do not fabricate statistics.
+
+Do not allow players to change their identity or manipulate scores during an active game.
+
+Keep profile editing separate from protected game state.
+
+---
+
+# 7. REAL MULTIPLAYER ROOMS
+
+Support 2–8 actual players connecting from separate devices.
+
+Use the existing multiplayer backend if available. Otherwise, integrate an appropriate real-time backend such as Firebase Realtime Database or Cloud Firestore with suitable server-side functions.
+
+Do not use browser-local state as the sole multiplayer mechanism.
+
+## Create room
+
+Provide a functional CREATE ROOM button.
+
+When clicked:
+- Validate authentication requirements.
+- Create a unique room.
+- Generate a room code.
+- Register the host.
+- Initialize room state.
+- Display the lobby.
+- Allow the host to invite others.
+
+## Join room
+
+Provide:
+- Room-code entry.
+- Paste support.
+- Join action.
+- Loading indicator.
+- Invalid-code error.
+- Expired-room error.
+- Full-room error.
+- Connection error.
+
+Joining should connect the user to the real room.
+
+## Lobby
+
+Display:
+- Real room code.
+- Copy button.
+- Share invitation.
+- Current player count.
+- Player cards.
+- Host badge.
+- Ready status.
+- Leave-room action.
+- Start-game button for the host.
+
+Show actual connected players and synchronize player status across devices.
+
+## Multiplayer reliability
+
+Implement or account for:
+- Player disconnections.
+- Reconnection.
+- Duplicate join attempts.
+- Room expiration.
+- Host departure.
+- Invalid actions.
+- Stale sessions.
+- Simultaneous requests.
+- Full rooms.
+
+Prevent unauthorized users from reading secret roles or private objectives.
+
+Validate important game actions on a trusted backend.
+
+---
+
+# 8. GAMEPLAY: SIGNAL OR SABOTAGE
+
+Implement or preserve the existing Signal or Sabotage game mode.
+
+The game combines:
+- Rapid-fire challenges.
+- Logic puzzles.
+- Bluffing.
+- Predictions.
+- Social deduction.
+- Investigation.
+- Voting.
+- Scoring.
+- A final winner reveal.
+
+Support 2–8 players.
+
+Use five rounds when compatible with the existing game rules.
+
+## Challenge types
+
+Use implemented challenge types such as:
+- Logic Pulse.
+- Quick Signal.
+- Bluff Matrix.
+- Memory Echo.
+- Prediction Grid.
+- Secret Signal.
+
+Each challenge must have:
+- Clear instructions.
+- A functional question or task.
+- A real timer.
+- Working answer controls.
+- Submission confirmation.
+- Valid scoring.
+- Correct round progression.
+
+Do not show unfinished challenges as playable.
+
+## Two-player support
+
+For two players, use a properly designed duel variant if the current rules require it.
+
+Do not require players to identify a nonexistent third player.
+
+## Secret roles
+
+Assign secret roles according to the real game rules.
+
+Display private role information only to the authorized player.
+
+## Scoring
+
+Preserve the existing scoring implementation if it already works.
+
+Otherwise, implement a consistent scoring system with server-side validation.
+
+Illustrative scoring:
+- Correct challenge answer: +100.
+- Correct Saboteur identification: +150.
+- Correct prediction: +50.
+- Saboteur objective success: +150.
+- Successful deception: +100.
+
+Ensure actions cannot be scored twice.
+
+Use server-authoritative scoring and a deterministic winner calculation.
+
+---
+
+# 9. ANIMATED BACKGROUND ENVIRONMENTS
+
+Create multiple original animated environments inspired by the reference image.
+
+These environments should make NEXORA feel like a living cartoon world.
+
+## Environment A: Candy Sky
+
+Use:
+- Floating pastel islands.
+- Moving clouds.
+- Gentle stars.
+- Floating candy-colored geometric shapes.
+- Slowly bobbing mascots.
+
+Use this environment for the homepage.
+
+## Environment B: Chaos Playground
+
+Use:
+- Colorful platforms.
+- Floating decorations.
+- Playful lights.
+- Bouncing background objects.
+- Bright mascot silhouettes.
+
+Use this for the lobby.
+
+## Environment C: Game Show Arena
+
+Use:
+- Colorful stage lighting.
+- Cartoon spotlights.
+- Moving background shapes.
+- A dramatic central challenge panel.
+- Subtle ambient particles.
+
+Use this during challenges.
+
+## Environment D: Mystery Mode
+
+Use:
+- Midnight-blue and purple surfaces.
+- Soft moving shadows.
+- Suspicious character expressions.
+- Floating question marks.
+- Restrained glowing accents.
+
+Use this during investigation and voting.
+
+## Environment E: Victory Festival
+
+Use:
+- Confetti.
+- Stars.
+- Colorful fireworks-like visual effects.
+- A trophy or winner podium.
+- Celebrating mascots.
+
+Use this only after the real game result has been determined.
+
+## Implementation guidance
+
+Use CSS animations, SVG, canvas, or lightweight existing libraries where appropriate.
+
+Prefer reusable animation components.
+
+Keep the main gameplay controls visually dominant.
+
+Do not use large static images as a substitute for the requested animated environment.
+
+Avoid excessive particle counts and expensive rendering effects.
+
+Use reduced-motion support and adapt animation intensity for mobile devices.
+
+---
+
+# 10. ORIGINAL GAME BACKGROUND MUSIC
+
+Create a recognizable musical identity for NEXORA.
+
+The music should make the game feel fun, playful, energetic, and memorable.
+
+Use an original instrumental composition or a properly licensed audio asset.
+
+Do not copy commercial songs, copyrighted melodies, or recognizable game soundtracks.
+
+## Main theme: "CHAOS CLUB"
+
+Creative direction:
+- Upbeat electronic pop.
+- Playful arcade energy.
+- Bright synth melodies.
+- Bouncy bass.
+- Light percussion.
+- Cheerful digital bleeps.
+- A memorable original musical hook.
+- A friendly, cartoon-inspired atmosphere.
+
+Target tempo: approximately 115–135 BPM.
+
+The composition should be energetic without becoming irritating during extended play.
+
+Use a seamless loop if possible.
+
+If an audio-generation service is available, create or obtain a suitable original instrumental track.
+
+Otherwise, use a properly licensed audio asset or a locally generated procedural soundtrack.
+
+Do not reference a nonexistent audio file.
+
+Do not depend on a remote music URL that may disappear without providing a fallback.
+
+## Music player interface
+
+Create a polished music panel inspired by the reference image.
+
+Include:
+- Track title.
+- Music status.
+- Play/pause.
+- Volume slider.
+- Mute button.
+- Progress indicator when supported.
+- Optional next/previous controls if multiple tracks are implemented.
+
+Track title:
+"NEXORA — CHAOS CLUB THEME"
+
+Subtitle:
+"FEEL THE CHAOS."
+
+## Playback behavior
+
+- Start with music muted or paused.
+- Require an explicit user action to begin playback.
+- Respect browser autoplay restrictions.
+- Preserve the user's music preference where appropriate.
+- Provide a visible music toggle.
+- Allow users to adjust volume.
+- Pause or reduce music during appropriate transitions if useful.
+- Avoid playing multiple overlapping audio instances.
+- Stop or clean up audio when components unmount.
+- Handle missing or failed audio gracefully.
+
+## Sound effects
+
+Where appropriate, add subtle original effects for:
+- Button presses.
+- Room creation.
+- Player joining.
+- Countdown warnings.
+- Answer submission.
+- Score changes.
+- Voting.
+- Final reveals.
+- Victory celebrations.
+
+Provide a separate sound-effects toggle.
+
+Avoid loud or repetitive sounds.
+
+Keep sound effects distinct from background music.
+
+---
+
+# 11. PLAYER LOBBY DESIGN
+
+Recreate the player lobby shown in the reference image.
+
+Use a rich midnight-blue environment with colorful character cards.
+
+Display:
+- Room code.
+- Copy and share buttons.
+- Player count.
+- Player roster.
+- Host information.
+- Ready states.
+- Optional chat if supported.
+- Start-game button.
+- Leave-room button.
+
+Animate new player cards into the lobby.
+
+Show a brief visual confirmation when a player becomes ready.
+
+Do not create fake players to fill empty spaces.
+
+Use actual backend state to render all player information.
+
+---
+
+# 12. ACTIVE GAMEPLAY DESIGN
+
+Create a colorful game-show challenge screen.
+
+Include:
+- Round number.
+- Challenge name.
+- Countdown timer.
+- Question or task.
+- Answer choices.
+- Player status.
+- Current score.
+- Progress indicator.
+- Submission state.
+
+Make answer buttons large and easy to use on mobile.
+
+Synchronize timer and round state with the authoritative game state.
+
+Avoid animations that delay submissions or cause accidental clicks.
+
+---
+
+# 13. INVESTIGATION AND VOTING
+
+Create a dramatic mystery-themed interface.
+
+Heading:
+"WHO'S ACTING SUS?"
+
+Display the eligible players as selectable character cards.
+
+Include:
+- Player name.
+- Selection state.
+- Voting status when appropriate.
+- Remaining time.
+- Vote confirmation.
+- Clear submission feedback.
+
+Validate voting permissions and prevent duplicate or invalid votes.
+
+Do not reveal private roles before the appropriate game stage.
+
+Use subtle dramatic lighting and character expressions.
+
+---
+
+# 14. REVEAL AND WINNER SCREENS
+
+Create a polished, celebratory final experience.
+
+Display:
+- Actual winner.
+- Final scores.
+- Round results.
+- Correct predictions.
+- Relevant achievements.
+- Play Again.
+- Return to Lobby, if supported.
+- Exit.
+
+Use confetti, a trophy, a podium, animated mascots, and playful victory banners.
+
+Possible dynamic headlines:
+- "ABSOLUTE LEGEND!"
+- "THE MASTER OF MAYHEM!"
+- "THE BIG-BRAIN CHAMPION!"
+- "THE SNEAKIEST PLAYER ALIVE!"
+
+Select messages according to the real outcome.
+
+Never show a fake score or announce an unverified winner.
+
+---
+
+# 15. RESPONSIVE MOBILE EXPERIENCE
+
+Ensure all screens work on:
+- Desktop.
+- Laptop.
+- Tablet.
+- Mobile.
+
+On mobile:
+- Keep important buttons visible.
+- Use touch-friendly answer choices.
+- Ensure the timer remains readable.
+- Prevent horizontal overflow.
+- Keep player cards easy to select.
+- Avoid placing animations over controls.
+- Ensure authentication forms remain usable when the keyboard opens.
+- Keep the music controls accessible.
+- Respect device safe areas.
+
+Test narrow widths around 320–375 pixels.
+
+Do not simply shrink the desktop layout.
+
+Create intentional mobile layouts.
+
+---
+
+# 16. TECHNICAL ARCHITECTURE AND DATA SECURITY
+
+Before implementation, identify the current stack and reuse it wherever practical.
+
+If Firebase is used, organize authentication, database access, and server-side game actions clearly.
+
+Use appropriate security rules.
+
+Never place private server credentials in client-side source files.
+
+Keep sensitive game logic and authoritative scoring on the server.
+
+Validate:
+- User identity.
+- Room membership.
+- Host permissions.
+- Player limits.
+- Game phase.
+- Submission timing.
+- Voting eligibility.
+- Scoring.
+- Winner determination.
+
+Do not trust arbitrary client-provided scores or role assignments.
+
+Use the existing architecture unless a necessary change is justified.
+
+Do not delete existing project files or replace working functionality without a clear reason.
+
+---
+
+# 17. REQUIRED TESTING
+
+After implementation, test the complete user journey.
+
+## Authentication tests
+- Register a new account.
+- Reject invalid registration data.
+- Log in successfully.
+- Reject invalid credentials.
+- Log out.
+- Refresh the page and verify session behavior.
+- Test password reset if configured.
+
+## Multiplayer tests
+- Create a room.
+- Join using a second device.
+- Confirm that both devices see the same players.
+- Test the minimum and maximum player limits.
+- Test ready states.
+- Start a game.
+- Submit answers from different devices.
+- Verify synchronized rounds.
+- Verify voting.
+- Verify scoring.
+- Verify the final winner.
+- Test disconnection and reconnection where supported.
+
+## Music and animation tests
+- Start and pause music.
+- Adjust volume.
+- Mute sound effects.
+- Confirm no overlapping music tracks.
+- Confirm animations do not block gameplay.
+- Confirm reduced-motion support.
+- Confirm graceful behavior when an audio asset is unavailable.
+
+## Visual tests
+- Inspect every implemented screen.
+- Check spacing, typography, and contrast.
+- Check mobile layouts.
+- Check loading and error states.
+- Check that all buttons perform real actions.
+- Check that animations match actual game events.
+
+Fix issues discovered during testing.
+
+Do not report tests as passed unless they were actually performed.
+
+---
+
+# 18. PUBLIC DEPLOYMENT READINESS
+
+Prepare the project for public access.
+
+Check:
+- Production build.
+- Required environment variables.
+- Authentication provider configuration.
+- Authorized domains.
+- Database security rules.
+- Backend function deployment.
+- Audio asset availability.
+- Asset paths.
+- Mobile responsiveness.
+- Error handling.
+- Direct navigation and page refresh behavior.
+
+If deployment requires my action, provide simple step-by-step instructions.
+
+Never expose secrets in a public repository or frontend bundle.
+
+Do not claim that the game is publicly deployed until a working public URL exists and has been verified.
+
+---
+
+# 19. FINAL ACCEPTANCE CRITERIA
+
+The project is complete only when:
+
+1. The visual design closely follows the reference image.
+2. The original mascot universe is implemented.
+3. The homepage has animated backgrounds.
+4. Login and registration use real authentication.
+5. User sessions work correctly.
+6. Authenticated users can create and join real rooms.
+7. Two to eight players can participate according to the implemented rules.
+8. Game challenges, timers, voting, scoring, and final results work.
+9. Background music has functional playback controls.
+10. Animations remain smooth and do not interfere with gameplay.
+11. The interface works on mobile and desktop.
+12. Backend security is preserved.
+13. The application has been tested.
+14. Deployment requirements are documented accurately.
+
+# EXECUTION INSTRUCTIONS
+
+Start by inspecting my existing NEXORA project.
+
+Then:
+1. Summarize the existing architecture and features.
+2. Identify missing backend configuration.
+3. Plan the changes.
+4. Implement the visual redesign and original animated assets.
+5. Implement authentication.
+6. Implement music and audio controls.
+7. Preserve or complete real multiplayer gameplay.
+8. Test the entire experience.
+9. Fix issues.
+10. Provide a clear summary of completed work and anything I must configure manually.
+
+Work directly in the existing project.
+
+Prioritize a beautiful, playful, cohesive user experience without sacrificing real functionality, security, performance, or reliability.
+
+**FINAL VISION: NEXORA SHOULD FEEL LIKE A LIVING CARTOON PARTY ARCADE WHERE FRIENDS CAN SIGN IN, JOIN THE CHAOS, HEAR THE THEME MUSIC, PLAY TOGETHER, AND COME BACK FOR ANOTHER ROUND.**

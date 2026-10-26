@@ -1,0 +1,294 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --white-primary: #FFFFFF;
+    --white-warm: #FFFEFA;
+    --white-cloud: #F8FBFF;
+    --lavender-soft: #F2ECFF;
+    --pink-baby: #FFF0F7;
+    --blue-sky: #EAF8FF;
+    --mint-soft: #E8FFF3;
+    --peach-soft: #FFF0E5;
+
+    --pink-bubble: #FF5DA2;
+    --pink-electric: #FF39A8;
+    --purple-electric: #9671FF;
+    --orange-candy: #FF8A3D;
+    --yellow-sunshine: #FFD84D;
+    --blue-electric: #53CFFF;
+    --green-mint: #65DDB0;
+
+    --text-main: #302044;
+    --text-secondary: #756A84;
+    --text-muted: #9A91A5;
+  }
+
+  body {
+    background-color: #FFFFFF;
+    color: #302044;
+    font-family: 'Nunito', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+}
+
+/* Custom Fonts */
+.font-bubble {
+  font-family: 'Fredoka', cursive, sans-serif;
+}
+
+.font-body {
+  font-family: 'Nunito', sans-serif;
+}
+
+.font-mono-tabular {
+  font-family: 'JetBrains Mono', monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* 3D Toy-Box Cards & Stickers on Bright White */
+.toy-card {
+  background-color: #FFFFFF;
+  color: #302044;
+  border: 3px solid #302044;
+  border-radius: 1.5rem;
+  box-shadow: 4px 6px 0px #302044;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.toy-card-clean {
+  background-color: #FFFFFF;
+  color: #302044;
+  border: 2px solid #EAE4F5;
+  border-radius: 1.5rem;
+  box-shadow: 0 12px 32px -4px rgba(48, 32, 68, 0.08), 0 4px 0 #F0EBF9;
+  transition: all 0.2s ease-out;
+}
+
+.toy-card-clean:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px -4px rgba(48, 32, 68, 0.12), 0 6px 0 #E2DBF0;
+}
+
+.toy-card-yellow {
+  background-color: #FFF6CC;
+  color: #302044;
+  border: 3px solid #302044;
+  border-radius: 1.5rem;
+  box-shadow: 4px 6px 0px #302044;
+}
+
+.toy-card-purple {
+  background-color: #F3EEFF;
+  color: #302044;
+  border: 3px solid #302044;
+  border-radius: 1.5rem;
+  box-shadow: 4px 6px 0px #302044;
+}
+
+.toy-card-pink {
+  background-color: #FFEAF3;
+  color: #302044;
+  border: 3px solid #302044;
+  border-radius: 1.5rem;
+  box-shadow: 4px 6px 0px #302044;
+}
+
+.toy-card-mint {
+  background-color: #E8FCF4;
+  color: #302044;
+  border: 3px solid #302044;
+  border-radius: 1.5rem;
+  box-shadow: 4px 6px 0px #302044;
+}
+
+.toy-card-sky {
+  background-color: #ECF8FF;
+  color: #302044;
+  border: 3px solid #302044;
+  border-radius: 1.5rem;
+  box-shadow: 4px 6px 0px #302044;
+}
+
+/* Transformed white-palette cards for replaced dark cards */
+.midnight-panel,
+.toy-card-dark {
+  background: #FFFFFF;
+  color: #302044;
+  border: 3px solid #302044;
+  border-radius: 1.5rem;
+  box-shadow: 4px 6px 0px #302044;
+}
+
+.midnight-panel-pink {
+  background: #FFF5F9;
+  color: #302044;
+  border: 3px solid #FF5DA2;
+  border-radius: 1.5rem;
+  box-shadow: 4px 6px 0px #FF5DA2;
+}
+
+.midnight-panel-yellow {
+  background: #FFFDF0;
+  color: #302044;
+  border: 3px solid #FFD84D;
+  border-radius: 1.5rem;
+  box-shadow: 4px 6px 0px #FFD84D;
+}
+
+/* 3D Chunky Toy Buttons */
+.btn-chunky {
+  position: relative;
+  font-family: 'Fredoka', cursive, sans-serif;
+  font-weight: 700;
+  border-radius: 1.25rem;
+  border: 3px solid #302044;
+  transition: all 0.15s ease-out;
+  cursor: pointer;
+  user-select: none;
+}
+
+.btn-chunky-pink {
+  background: linear-gradient(135deg, #FF5DA2 0%, #FF39A8 100%);
+  color: #FFFFFF;
+  box-shadow: 0 4px 0 #B81F6C, 0 6px 0 #302044;
+}
+.btn-chunky-pink:hover {
+  background: linear-gradient(135deg, #FF70AE 0%, #FF4FB3 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 #B81F6C, 0 8px 0 #302044;
+}
+.btn-chunky-pink:active {
+  transform: translateY(4px);
+  box-shadow: 0 0 0 #B81F6C, 0 2px 0 #302044;
+}
+
+.btn-chunky-yellow {
+  background: linear-gradient(135deg, #FFD84D 0%, #FFB800 100%);
+  color: #302044;
+  box-shadow: 0 4px 0 #C98A00, 0 6px 0 #302044;
+}
+.btn-chunky-yellow:hover {
+  background: linear-gradient(135deg, #FFE170 0%, #FFC420 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 #C98A00, 0 8px 0 #302044;
+}
+.btn-chunky-yellow:active {
+  transform: translateY(4px);
+  box-shadow: 0 0 0 #C98A00, 0 2px 0 #302044;
+}
+
+.btn-chunky-purple {
+  background: linear-gradient(135deg, #9671FF 0%, #7A4EE0 100%);
+  color: #FFFFFF;
+  box-shadow: 0 4px 0 #5E34BA, 0 6px 0 #302044;
+}
+.btn-chunky-purple:hover {
+  background: linear-gradient(135deg, #A886FF 0%, #8D61F0 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 #5E34BA, 0 8px 0 #302044;
+}
+.btn-chunky-purple:active {
+  transform: translateY(4px);
+  box-shadow: 0 0 0 #5E34BA, 0 2px 0 #302044;
+}
+
+.btn-chunky-blue {
+  background: linear-gradient(135deg, #53CFFF 0%, #28A5D6 100%);
+  color: #302044;
+  box-shadow: 0 4px 0 #1881AB, 0 6px 0 #302044;
+}
+.btn-chunky-blue:hover {
+  background: linear-gradient(135deg, #72D8FF 0%, #3FB3E3 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 #1881AB, 0 8px 0 #302044;
+}
+.btn-chunky-blue:active {
+  transform: translateY(4px);
+  box-shadow: 0 0 0 #1881AB, 0 2px 0 #302044;
+}
+
+.btn-chunky-white {
+  background: #FFFFFF;
+  color: #302044;
+  box-shadow: 0 4px 0 #E2DBF0, 0 6px 0 #302044;
+}
+.btn-chunky-white:hover {
+  background: #FFFDF9;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 #E2DBF0, 0 8px 0 #302044;
+}
+.btn-chunky-white:active {
+  transform: translateY(4px);
+  box-shadow: 0 0 0 #E2DBF0, 0 2px 0 #302044;
+}
+
+/* Playful Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(2deg); }
+}
+
+@keyframes float-reverse {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(-2deg); }
+}
+
+@keyframes bounce-gentle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-6deg); }
+  75% { transform: rotate(6deg); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.85; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.04); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: float-reverse 4.5s ease-in-out infinite;
+}
+
+.animate-bounce-gentle {
+  animation: bounce-gentle 2s ease-in-out infinite;
+}
+
+.animate-wiggle {
+  animation: wiggle 0.6s ease-in-out;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* Custom Scrollbars in White & Candy */
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F8FBFF;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #FF5DA2;
+  border-radius: 9999px;
+  border: 2px solid #FFFFFF;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9671FF;
+}

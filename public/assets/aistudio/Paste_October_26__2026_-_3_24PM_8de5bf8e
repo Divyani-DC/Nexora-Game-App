@@ -1,0 +1,820 @@
+# PROJECT: NEXORA — THE ULTIMATE MULTIPLAYER PARTY SHOWDOWN
+
+Act as a senior full-stack game developer, multiplayer systems architect, game designer, UI/UX expert, motion designer, and deployment engineer.
+
+Build a complete, production-oriented, real-time multiplayer party game web application named NEXORA.
+
+Do not create merely a landing page, visual mockup, prototype with fake multiplayer, or collection of disconnected screens. Build a functional game with real room creation, real room-code joining, synchronized multiplayer state, server-validated gameplay, scoring, multiple rounds, and a deployment-ready architecture.
+
+The application must be suitable for public release and work across desktop computers, laptops, tablets, and mobile phones.
+
+IMPORTANT WORKFLOW:
+1. First inspect the requirements and propose a concise implementation plan.
+2. Explain the proposed game mechanics, multiplayer architecture, backend, and deployment strategy.
+3. Do not implement the application until the plan and game rules have been approved.
+4. After approval, build the application incrementally, starting with the playable multiplayer game loop.
+5. Test and debug the implementation before applying final visual polish.
+6. Preserve existing working functionality when making improvements.
+
+If a tool or environment requires me to approve a plan before continuing, stop and request that approval. Do not claim that deployment, testing, or backend setup has succeeded unless it has actually been completed.
+
+==================================================
+1. ORIGINAL GAME CONCEPT
+==================================================
+
+GAME NAME:
+NEXORA
+
+TAGLINE:
+Think Fast. Trust Nobody. Win Together.
+
+GAME CATEGORY:
+Social deduction + rapid-fire party challenges + bluffing + voting.
+
+TARGET AUDIENCE:
+Friends, college students, families, online communities, and casual gaming groups.
+
+PLAYER COUNT:
+Minimum 2 players.
+Maximum 8 players per room.
+
+SESSION LENGTH:
+Approximately 8–15 minutes, depending on the number of rounds.
+
+PLATFORM:
+Browser-based multiplayer game.
+
+CORE IDEA:
+
+Players enter a futuristic digital arena called the NEXORA Arena.
+
+Each match contains five rounds of interactive challenges.
+
+During each round:
+- Players receive a secret role.
+- The game presents a challenge.
+- Players submit answers, make predictions, or choose actions depending on the challenge.
+- One player may receive a secret objective that differs from the normal objective.
+- Players receive limited clues about what happened.
+- Players discuss, bluff, investigate, and vote.
+- The game reveals the round outcome.
+- Players receive points according to the scoring rules.
+
+The game combines quick thinking, strategy, deception, deduction, and social interaction.
+
+The experience should feel like participating in an animated futuristic game show with friends.
+
+IMPORTANT:
+The game must remain enjoyable with two players and scale to eight players. Design the mechanics so the hidden-role phase never makes a two-player match impossible or unfair.
+
+Do not copy an existing commercial game, its characters, artwork, branding, or distinctive interface. Create original mechanics, visual assets, wording, and presentation.
+
+==================================================
+2. CORE GAME MODE: SIGNAL OR SABOTAGE
+==================================================
+
+Create one polished primary game mode called SIGNAL OR SABOTAGE.
+
+Each match consists of five rounds.
+
+Each round has the following phases:
+
+PHASE A — SECRET BRIEFING
+
+Each connected player receives a private objective.
+
+Most players are SIGNAL agents who attempt to solve the challenge.
+
+One eligible player may become the SABOTEUR, whose objective is to mislead the group without making their identity obvious.
+
+At the start of the round, private information must only be visible to its intended recipient.
+
+For a two-player match, use a special Duel configuration:
+- Both players receive different secret objectives.
+- The round uses a direct prediction or bluffing challenge.
+- Neither player is expected to identify a third person who does not exist.
+- The duel has its own fair scoring rules.
+
+For larger matches, use one Saboteur when appropriate. Configure the role system so that the game remains balanced and every role has a meaningful objective.
+
+The Saboteur must not be automatically selected as the winner or receive points merely for being assigned the role.
+
+PHASE B — THE CHALLENGE
+
+Generate a challenge from a curated set of original, safe, family-friendly challenges.
+
+Challenge categories include:
+
+1. LOGIC PULSE
+Solve a short logic puzzle or pattern.
+
+2. QUICK SIGNAL
+Answer a general-knowledge or observation question.
+
+3. BLUFF MATRIX
+Choose between several options while trying to predict the group's choices.
+
+4. MEMORY ECHO
+Remember a short sequence of symbols, colors, or objects.
+
+5. PREDICTION GRID
+Predict which answer or option will receive the most votes.
+
+6. SECRET SIGNAL
+Submit a response while pursuing a private objective.
+
+Use curated question data instead of requiring an external AI call for every round.
+
+All players must receive the same public challenge, except when a round explicitly requires different private information.
+
+PHASE C — SUBMISSION
+
+Players receive a countdown timer.
+
+Each player submits an answer or action before time expires.
+
+Rules:
+- A player can submit only once per phase.
+- A player cannot modify a locked submission unless the challenge explicitly allows revisions.
+- The server validates all submissions.
+- Submitted answers remain private until the correct reveal phase.
+- The game must distinguish connected players, submitted players, and players still waiting.
+- When the timer ends, the server advances the game according to the rules.
+- Disconnected players must not be allowed to corrupt the round state.
+
+PHASE D — INVESTIGATION
+
+Show the information that players are permitted to see.
+
+Allow players to:
+- Review public clues.
+- Examine the challenge results.
+- Submit a suspicion vote.
+- Select a player they believe is the Saboteur.
+- Lock their vote before the timer expires.
+
+Votes must remain secret until the reveal phase.
+
+A player cannot vote multiple times or vote for an invalid target.
+
+Do not reveal private objectives, answers, or hidden roles before the designated reveal.
+
+PHASE E — REVEAL AND SCORING
+
+Reveal the correct answer, round results, and relevant role information.
+
+Award points based on the scoring rules.
+
+Show:
+- Correct answers.
+- Successful predictions.
+- Correct suspicion votes.
+- Successful Saboteur objectives.
+- Round winners.
+- Updated player scores.
+- A concise explanation of how points were awarded.
+
+After scoring, transition to the next round.
+
+After five completed rounds, display the final standings and overall winner.
+
+==================================================
+3. FAIR AND CLEAR SCORING SYSTEM
+==================================================
+
+Use the following initial scoring system.
+
+SIGNAL AGENTS:
+
+- Correct challenge answer: +100 points.
+- Correct Saboteur identification: +150 points.
+- Correct prediction, where applicable: +50 points.
+- Incorrect suspicion vote: 0 points for that vote.
+- Missing a required submission: 0 points for that action.
+
+SABOTEUR:
+
+- Successfully completing the secret round objective: +150 points.
+- Misleading the group successfully according to the specific challenge rules: +100 points.
+- Being identified correctly by the group: no automatic penalty beyond losing the opportunity to complete a successful deception objective.
+- Failing the secret objective: 0 points for that objective.
+
+DUEL MODE:
+
+- Use separate challenge-specific scoring so both players have a meaningful route to victory.
+- Award points for correct predictions, challenge performance, and successfully meeting a private objective.
+- Do not use Saboteur-identification scoring in a two-player round where there is no third player to identify.
+
+GENERAL RULES:
+
+- All scores must be calculated and validated by trusted game logic.
+- Clients must not be able to assign themselves points.
+- Prevent duplicate scoring when a request is retried.
+- Keep a clear score history for each completed round.
+- Make the scoring rules visible in the lobby and during the match.
+- Show the final winner using total accumulated points after five rounds.
+- If players finish with the same score, use a clearly defined tiebreaker based on challenge points, followed by a shared victory if still tied.
+
+Design scoring so that the game rewards both skill and strategic deception without allowing a player to win solely by exploiting the scoring system.
+
+==================================================
+4. ROOM CREATION AND MULTIPLAYER LOBBY
+==================================================
+
+The game must support 2–8 players in a room.
+
+LANDING SCREEN:
+
+Display:
+- NEXORA logo.
+- Tagline.
+- PLAY NOW button.
+- CREATE ROOM button.
+- JOIN ROOM button.
+- HOW TO PLAY.
+- RULES AND SCORING.
+- SETTINGS.
+
+PLAYER IDENTITY:
+
+Allow users to choose a display name.
+
+Use a generated avatar or a selection of original avatar icons.
+
+Do not require account registration for the basic guest experience.
+
+ROOM CREATION:
+
+When a player creates a room:
+- Generate a unique, easy-to-read room code.
+- Assign that player as host.
+- Create a real shared room in the backend.
+- Allow the host to configure the number of rounds, using five rounds as the default.
+- Display the room code prominently.
+- Provide a Copy Code button.
+- Provide a Share Invite button using a shareable link when supported.
+- Display the current player count.
+- Display the minimum and maximum player requirements.
+- Allow the host to start the match when at least two players are ready.
+
+JOIN ROOM:
+
+Provide an input field for the room code.
+
+Requirements:
+- Validate the room code.
+- Display clear errors for invalid or expired rooms.
+- Prevent joining a room that is full.
+- Prevent joining a game already in progress unless spectator or reconnect functionality is explicitly supported.
+- Avoid duplicate player identities within a room.
+- Show a confirmation before entering a room under a chosen display name.
+
+LOBBY:
+
+Display:
+- Host identity.
+- Player list.
+- Player count, such as 4/8.
+- Ready status.
+- Room code.
+- Copy and share controls.
+- Game rules.
+- Scoring summary.
+- Start Game button for the host.
+- Leave Room button.
+- Connection status.
+
+The host must not be able to start the match with fewer than two players.
+
+All connected clients must see lobby changes in real time.
+
+If the host disconnects, implement a safe host reassignment policy or prevent the game from starting until the host reconnects.
+
+==================================================
+5. REAL-TIME MULTIPLAYER ARCHITECTURE
+==================================================
+
+This is a mandatory requirement.
+
+Do not implement fake multiplayer using browser local state alone.
+
+Players must be able to join from separate devices and participate in the same live game.
+
+Inspect the capabilities of the available Google AI Studio environment before selecting the final architecture.
+
+Preferred implementation:
+- React.
+- TypeScript.
+- Responsive CSS or a suitable styling framework.
+- Firebase Authentication with anonymous sign-in or an equivalent guest identity mechanism, if supported.
+- Cloud Firestore or Firebase Realtime Database for persistent shared room state.
+- Server-side game validation using Cloud Functions or another appropriate trusted backend.
+
+If a different backend is more suitable, explain the trade-offs before implementing it.
+
+The architecture must support:
+- Creating rooms.
+- Joining rooms.
+- Real-time player presence.
+- Ready-state updates.
+- Host permissions.
+- Server-controlled round transitions.
+- Timers and deadlines.
+- Private role assignment.
+- Private submissions.
+- Secret voting.
+- Score calculation.
+- Final standings.
+- Reconnection.
+- Room expiration and cleanup.
+
+SECURITY:
+
+Never trust client-side scoring or role assignments.
+
+Validate all important actions on a trusted server.
+
+Use server-side authorization and appropriate database security rules.
+
+Do not expose secret roles, hidden answers, unrevealed votes, private objectives, API credentials, or other restricted information in publicly readable room data.
+
+Separate public room state from private player state.
+
+Ensure that a player can access only their own private information and the information they are authorized to see.
+
+Do not store secrets in frontend environment variables or browser-accessible configuration.
+
+If the selected architecture requires manual Firebase configuration, explain each step clearly. Do not invent credentials or pretend that the backend is configured automatically.
+
+==================================================
+6. RECONNECTION AND FAILURE HANDLING
+==================================================
+
+Implement:
+- Connection status indicators.
+- A reconnecting state.
+- Safe recovery after refreshing the page.
+- Restoration of the player's room membership when appropriate.
+- Server-authoritative round deadlines.
+- Protection against submitting twice.
+- Protection against repeated scoring.
+- Room expiration and cleanup.
+- Clear errors for unavailable backend services.
+- A graceful response when a player disconnects during a round.
+- A safe policy for disconnected players and abandoned rooms.
+
+Do not silently move the game into a broken state if the connection is lost.
+
+If full reconnection recovery is not supported by the selected platform, document the limitation and implement the most reliable alternative.
+
+==================================================
+7. MASTER UI/UX DESIGN
+==================================================
+
+Design the game with the polish of a premium gaming platform and the clarity of a modern digital wallet.
+
+Use MetaMask as a broad reference for visual quality, dark surfaces, clear cards, restrained gradients, and a modern digital-product experience.
+
+Do not copy MetaMask's exact interface, logo, illustrations, or branded components.
+
+Create an original NEXORA visual identity.
+
+DESIGN DIRECTION:
+
+Mood:
+Futuristic, mysterious, cinematic, competitive, premium, playful, and energetic.
+
+Primary colors:
+- Deep midnight blue: #081426
+- Electric navy: #10284A
+- Pure white: #FFFFFF
+- Neon pink: #FF4FA3
+
+Additional accent:
+- Soft violet: #8B7CFF
+
+Use the colors consistently. Pink should highlight primary actions, important game moments, and interactive states.
+
+VISUAL LANGUAGE:
+
+- Deep blue backgrounds.
+- Layered glass-like cards.
+- Subtle luminous borders.
+- Carefully controlled neon glows.
+- Original geometric symbols.
+- Abstract energy waves.
+- Animated signal particles.
+- Smooth transitions.
+- Modern typography.
+- High contrast between text and background.
+- Strong spacing and visual hierarchy.
+
+Do not overload every screen with glowing effects.
+
+Use animation to clarify actions and enhance excitement rather than distract from gameplay.
+
+TYPOGRAPHY:
+
+Use a modern, readable sans-serif font.
+
+Use clear heading sizes and comfortable body text.
+
+Make important information, including room codes, countdowns, player names, scores, and buttons, immediately readable.
+
+DESKTOP LAYOUT:
+
+- Wide central game arena.
+- Persistent but compact navigation.
+- Prominent round and phase indicators.
+- Player score panels.
+- Clear central challenge.
+- Contextual action buttons.
+- Optional event or activity feed where appropriate.
+
+MOBILE LAYOUT:
+
+- Single-column layout.
+- Large touch targets.
+- Readable text.
+- Compact player status panels.
+- Sticky primary action where appropriate.
+- No horizontal scrolling.
+- No critical information hidden behind hover interactions.
+- Safe spacing around device edges.
+- Reduced animation when the operating system requests reduced motion.
+
+==================================================
+8. ANIMATION AND GAME FEEL
+==================================================
+
+Make NEXORA feel like an interactive game show rather than a static website.
+
+Implement tasteful animations such as:
+
+1. LOADING:
+A luminous signal symbol appears while the application initializes.
+
+2. LANDING:
+The NEXORA logo enters with a smooth, subtle reveal.
+Abstract energy particles move slowly in the background.
+
+3. ROOM CREATION:
+The room code appears with a short reveal animation.
+A copy confirmation appears when the code is copied.
+
+4. PLAYER JOINING:
+Player cards animate into the lobby.
+The player counter updates smoothly.
+
+5. ROUND TRANSITION:
+Use a short cinematic transition with the round number and challenge category.
+
+6. COUNTDOWN:
+Use an animated countdown ring or progress indicator.
+
+7. ANSWER SUBMISSION:
+Show a clear confirmation when an answer is locked.
+
+8. VOTING:
+Reveal voting results with an animated but readable presentation.
+
+9. SCORING:
+Animate score changes and show concise explanations for points earned.
+
+10. SABOTEUR REVEAL:
+Create a short suspenseful reveal animation.
+
+11. FINAL WINNER:
+Display a celebratory winner screen with tasteful particles or confetti.
+
+12. BUTTONS:
+Use subtle hover, pressed, focus, and disabled states.
+
+ANIMATION CONSTRAINTS:
+
+- Keep animations smooth and lightweight.
+- Avoid long transitions that delay gameplay.
+- Respect reduced-motion settings.
+- Ensure animations do not interfere with timers or interactions.
+- Keep all controls usable while animations are running when appropriate.
+- Do not use animations as a substitute for actual state changes.
+
+==================================================
+9. REQUIRED APPLICATION SCREENS
+==================================================
+
+Build all of the following screens.
+
+SCREEN 1 — WELCOME
+
+- Original NEXORA logo.
+- Tagline.
+- Animated hero section.
+- Play Now.
+- Create Room.
+- Join Room.
+- How to Play.
+- Rules and Scoring.
+- Settings.
+
+SCREEN 2 — CREATE ROOM
+
+- Display-name input.
+- Avatar selection.
+- Room configuration.
+- Create button.
+- Loading and error states.
+
+SCREEN 3 — JOIN ROOM
+
+- Display-name input.
+- Room-code input.
+- Join button.
+- Validation messages.
+- Loading state.
+
+SCREEN 4 — LOBBY
+
+- Room code.
+- Copy and share controls.
+- Player cards.
+- Ready indicators.
+- Player count.
+- Host controls.
+- Game rules.
+- Start Game button.
+- Leave Room button.
+
+SCREEN 5 — PRIVATE BRIEFING
+
+- Private objective.
+- Assigned role.
+- Short instructions.
+- Continue button.
+- Private information must not appear on other players' screens.
+
+SCREEN 6 — CHALLENGE ARENA
+
+- Round number.
+- Challenge title.
+- Challenge description.
+- Countdown.
+- Interactive challenge content.
+- Submission status.
+- Player progress.
+
+SCREEN 7 — INVESTIGATION
+
+- Public clues.
+- Available evidence.
+- Player selection.
+- Voting interface.
+- Voting deadline.
+- Vote submission confirmation.
+
+SCREEN 8 — ROUND REVEAL
+
+- Correct answer or outcome.
+- Saboteur reveal when appropriate.
+- Player decisions.
+- Point breakdown.
+- Updated scoreboard.
+- Next Round transition.
+
+SCREEN 9 — SCOREBOARD
+
+- Player rankings.
+- Total points.
+- Round-by-round performance.
+- Correct predictions.
+- Successful objectives.
+- Clear next-step controls.
+
+SCREEN 10 — FINAL RESULTS
+
+- Overall winner.
+- Final rankings.
+- Total scores.
+- Performance summaries.
+- Play Again.
+- Return to Lobby.
+- Return Home.
+
+SCREEN 11 — HOW TO PLAY
+
+Explain:
+- How to create a room.
+- How to join with a code.
+- The difference between Signal agents and the Saboteur.
+- How to complete challenges.
+- How investigation and voting work.
+- How points are awarded.
+- How the winner is determined.
+
+SCREEN 12 — SETTINGS
+
+Include:
+- Sound on/off.
+- Music on/off if music is implemented.
+- Animation preferences.
+- Reduced-motion support.
+- Basic accessibility options.
+
+Every screen must use the same design system and maintain a consistent visual identity.
+
+==================================================
+10. AUDIO AND ACCESSIBILITY
+==================================================
+
+If appropriate, include:
+- Optional subtle background ambience.
+- Short interaction sounds.
+- Countdown feedback.
+- Correct-answer and reveal sounds.
+- Winner celebration audio.
+
+Audio must be disabled or silent by default until the user enables it.
+
+Do not use copyrighted music or sound assets without appropriate rights.
+
+Include:
+- Keyboard-accessible controls.
+- Visible focus indicators.
+- Accessible button labels.
+- Appropriate text contrast.
+- Screen-reader-friendly status messages.
+- Reduced-motion support.
+- Text alternatives for visual feedback.
+
+==================================================
+11. PERFORMANCE AND ENGINEERING QUALITY
+==================================================
+
+Build a maintainable application with:
+- Reusable components.
+- Clearly separated game logic.
+- Typed game-state structures.
+- Clear error handling.
+- No unnecessary dependencies.
+- No hardcoded secrets.
+- No fake multiplayer behavior.
+- No placeholder buttons presented as working features.
+- No broken navigation.
+- No unhandled state transitions.
+- No duplicate event handlers.
+- No client-authoritative scoring.
+
+Use a clear separation between:
+- UI components.
+- Game rules.
+- Multiplayer communication.
+- Trusted game-state transitions.
+- Private player information.
+- Score calculation.
+- Data validation.
+
+Avoid unnecessary database reads and writes.
+
+Keep the game responsive under normal network delays.
+
+If an important feature cannot be implemented in the available environment, identify the limitation rather than silently replacing it with a mock implementation.
+
+==================================================
+12. TESTING REQUIREMENTS
+==================================================
+
+Test the application with at least two separate player sessions.
+
+Where possible, test with 2, 3, 4, and 8 players.
+
+Verify:
+- Room creation.
+- Joining by room code.
+- Full-room rejection.
+- Invalid-room handling.
+- Ready-state synchronization.
+- Host start permissions.
+- Private role visibility.
+- Challenge submission.
+- Turn and phase progression.
+- Voting.
+- Correct score calculation.
+- Duplicate-submission prevention.
+- Reconnection behavior.
+- Final winner calculation.
+- Restarting a match.
+- Mobile responsiveness.
+- Network failure handling.
+
+Test a complete five-round match with two players in Duel Mode.
+
+Test a larger match with a Saboteur when the necessary test environment is available.
+
+Check that one player's private information is never visible to unauthorized players.
+
+Do not claim that multiple-player or deployment tests passed if they were not actually executed.
+
+Report:
+- Tests performed.
+- Results.
+- Known limitations.
+- Remaining configuration steps.
+
+==================================================
+13. DEPLOYMENT REQUIREMENTS
+==================================================
+
+Prepare the project for public deployment.
+
+The intended final result must have:
+- A publicly accessible URL.
+- A working frontend.
+- A working, reachable multiplayer backend.
+- A persistent shared game state where required.
+- Correct backend authorization.
+- Real-time synchronization across separate devices.
+- A working room-code system.
+- No dependence on a development server running on my personal computer.
+
+Explain the most appropriate deployment route for the architecture selected.
+
+If deploying to Netlify:
+- Prepare a production build.
+- Include the correct Netlify configuration.
+- Include required backend functions.
+- Use a compatible storage solution.
+- Ensure the frontend calls the correct deployed backend endpoint.
+- Verify production configuration and security rules.
+- Explain any required account setup or service configuration.
+
+Do not claim that a static-site deployment alone provides real-time multiplayer state.
+
+If the application requires Firebase configuration or a deployed server function, explain how to configure it step by step.
+
+If the environment supports creating a ZIP archive, package the complete deployable project as netlify-ready-game.zip after testing.
+
+Include the required source code, package manifest, lockfile, deployment configuration, and supporting files.
+
+Do not include node_modules, caches, logs, or unnecessary files.
+
+==================================================
+14. IMPLEMENTATION ORDER
+==================================================
+
+Follow this order.
+
+STEP 1:
+Inspect the requirements and present the implementation plan and final game rules.
+
+STEP 2:
+Wait for approval before building.
+
+STEP 3:
+Build the core application and original game mechanics.
+
+STEP 4:
+Implement real multiplayer rooms, player identities, and synchronized state.
+
+STEP 5:
+Implement the five-round game loop, private objectives, challenge submissions, voting, scoring, and final results.
+
+STEP 6:
+Implement security controls and failure handling.
+
+STEP 7:
+Run available tests and fix discovered issues.
+
+STEP 8:
+Apply the complete NEXORA design system and animations.
+
+STEP 9:
+Retest gameplay and responsiveness after styling.
+
+STEP 10:
+Prepare and deploy the production application.
+
+STEP 11:
+Verify the publicly accessible game using separate player sessions.
+
+STEP 12:
+Provide the live URL, deployment instructions, known limitations, and final project files where supported.
+
+FINAL ACCEPTANCE CRITERIA:
+
+The project is complete only when:
+- Two to eight players can participate in a shared room, subject to the configured game mode.
+- Players can join using a room code.
+- The game has clear, enforceable rules.
+- The game supports a complete five-round match.
+- Players receive correct and synchronized scores.
+- The winner is determined correctly.
+- Secret information is protected.
+- The interface works across devices.
+- The application is deployed to a publicly accessible URL.
+- The deployed multiplayer game has been tested.
+
+BEGIN WITH STEP 1 ONLY.
+
+Present the proposed architecture, explain the game rules and scoring, identify any backend requirements, and outline the implementation and deployment plan.
+
+Do not write the application code until I approve the plan.

@@ -1,0 +1,33 @@
+{
+  "id": "/",
+  "name": "NEXORA — The Chaos Club",
+  "short_name": "NEXORA",
+  "description": "Make Friends. Break Rules. Cause Chaos. Join the ultimate 8-player cartoon party game with rapid challenges, secret roles, and real-time multiplayer showdowns!",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "theme_color": "#FF5DA2",
+  "background_color": "#FFFFFF",
+  "categories": ["games", "entertainment"],
+  "icons": [
+    {
+      "src": "/pwa-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa-maskable-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
